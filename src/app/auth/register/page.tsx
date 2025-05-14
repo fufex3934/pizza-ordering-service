@@ -3,13 +3,13 @@
 import { useState } from "react";
 import { TextField, Button, Typography, Box } from "@mui/material";
 import { registerSchema } from "@/validators/user";
-
+import { useRouter } from "next/navigation";
 
 export default function RegisterPage() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
+   const route = useRouter();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -29,6 +29,7 @@ export default function RegisterPage() {
       if (!res.ok) throw new Error(data.message || "Registration failed");
       setSuccess("Registration successful!");
       setForm({ name: "", email: "", password: "" });
+      route.push('/auth/login');
     } catch (err: any) {
       setError(err.message);
     }
