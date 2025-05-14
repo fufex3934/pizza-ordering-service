@@ -1,17 +1,18 @@
 // app/layout.tsx
 'use client';
 
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import './globals.css';
+import { ReactNode } from 'react';
+import { ThemeProvider, CssBaseline, Container } from '@mui/material';
 import theme from '@/lib/theme';
-import React from 'react';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          {children}
+          <Container maxWidth="lg">{children}</Container>
         </ThemeProvider>
       </body>
     </html>

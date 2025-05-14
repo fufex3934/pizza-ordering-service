@@ -1,14 +1,17 @@
-
+// lib/theme.ts
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#d32f2f', // Red
+      main: '#ff5722', // Pizza orange 🍕
     },
     secondary: {
-      main: '#ffa000', // Amber
+      main: '#ffcc80',
     },
+  },
+  typography: {
+    fontFamily: 'Roboto, sans-serif',
   },
 });
 
